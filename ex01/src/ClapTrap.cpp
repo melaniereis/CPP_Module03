@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:30:12 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/01 17:15:41 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/01 17:15:43 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,46 @@ unsigned int ClapTrap::getEnergyPoints(void) const
 unsigned int ClapTrap::getAttackDamage(void) const
 {
 	return _attackDamage;
+}
+
+/**
+ * Setter for the ClapTrap's name.
+ *
+ * Sets the ClapTrap's name to the given std::string.
+ */
+void ClapTrap::setName(std::string name)
+{
+	this->_name = name;
+}
+
+/**
+ * Setter for the ClapTrap's hit points.
+ *
+ * Sets the ClapTrap's hit points to the given unsigned int.
+ */
+void ClapTrap::setHitPoints(unsigned int hitPoints)
+{
+	this->_hitPoints = hitPoints;
+}
+
+/**
+ * Setter for the ClapTrap's energy points.
+ *
+ * Sets the ClapTrap's energy points to the given unsigned int.
+ */
+void ClapTrap::setEnergyPoints(unsigned int energyPoints)
+{
+	this->_energyPoints = energyPoints;
+}
+
+/**
+ * Setter for the ClapTrap's attack damage.
+ *
+ * Sets the ClapTrap's attack damage to the given unsigned int.
+ */
+void ClapTrap::setAttackDamage(unsigned int attackDamage)
+{
+	this->_attackDamage = attackDamage;
 }
 
 /**
