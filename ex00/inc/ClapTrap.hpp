@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:31:03 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/01 14:02:53 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/01 21:46:21 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "ansi.h"
 #include <iostream>
+#include <iomanip>
 
 class ClapTrap
 {
@@ -42,5 +43,7 @@ private:
 	unsigned int _energyPoints;
 	unsigned int _attackDamage;
 };
+
+std::ostream &operator<<(std::ostream &out, ClapTrap const &rhs);
 
 #endif

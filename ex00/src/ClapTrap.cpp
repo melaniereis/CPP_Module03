@@ -6,35 +6,35 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:30:12 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/01 17:15:41 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/01 21:46:48 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ClapTrap.hpp"
 
 /**
- * Default constructor for ClapTrap.
+ * Default construrhsor for ClapTrap.
  *
  * Sets name to empty string, hitPoints to 10, energyPoints to 10 and attackDamage to 0.
  */
 ClapTrap::ClapTrap(void) : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << GRN "✅ ClapTrap Default constructor called" RESET << std::endl;
+	std::cout << GRN "✅ ClapTrap Default construrhsor called" RESET << std::endl;
 }
 
 /**
- * Constructor for ClapTrap, taking a std::string name as argument.
+ * Construrhsor for ClapTrap, taking a std::string name as argument.
  *
- * This constructor will set the ClapTrap's name to the given name, and hitPoints,
- * energyPoints and attackDamage to 10, 10 and 0 respectively.
+ * This construrhsor will set the ClapTrap's name to the given name, and hitPoints,
+ * energyPoints and attackDamage to 10, 10 and 0 resperhsively.
  */
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << GRN "✅ ClapTrap Name constructor called" RESET << std::endl;
+	std::cout << GRN "✅ ClapTrap Name construrhsor called" RESET << std::endl;
 }
 
 /**
- * Copy constructor for ClapTrap.
+ * Copy construrhsor for ClapTrap.
  *
  * Makes a deep copy of the ClapTrap at the right-hand side of the operator.
  * All the member variables are copied.
@@ -42,7 +42,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
 	*this = rhs;
-	std::cout << YEL "📋 ClapTrap Copy constructor called" RESET << std::endl;
+	std::cout << YEL "📋 ClapTrap Copy construrhsor called" RESET << std::endl;
 }
 /**
  * Assignment operator for ClapTrap.
@@ -64,13 +64,13 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 }
 
 /**
- * Destructor for ClapTrap.
+ * Destrurhsor for ClapTrap.
  *
- * Prints a message indicating the destructor has been called with the ClapTrap's name.
+ * Prints a message indicating the destrurhsor has been called with the ClapTrap's name.
  */
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << RED "❌ ClapTrap Destructor called for " << _name << RESET << std::endl;
+	std::cout << RED "❌ ClapTrap Destrurhsor called for " << _name << RESET << std::endl;
 }
 
 /**
@@ -124,7 +124,7 @@ bool ClapTrap::has_points(void) const
 {
 	if (_hitPoints == 0)
 	{
-		std::cout << RED "💀 " << _name << " has no hit points left and cannot act!" RESET << std::endl;
+		std::cout << RED "💀 " << _name << " has no hit points left and cannot arhs!" RESET << std::endl;
 		return false;
 	}
 	if (_energyPoints == 0)
@@ -189,17 +189,17 @@ void ClapTrap::beRepaired(unsigned int amount)
 }
 
 /**
- * Inflicts damage on the ClapTrap, reducing its hit points.
+ * Inflirhss damage on the ClapTrap, reducing its hit points.
  *
  * If the ClapTrap is already dead (hit points are 0), a message is printed
- * and no further action is taken. If the damage amount is 0, a message is
- * printed indicating no change, and no further action is taken.
- * Otherwise, the specified amount of damage is subtracted from the ClapTrap's
+ * and no further arhsion is taken. If the damage amount is 0, a message is
+ * printed indicating no change, and no further arhsion is taken.
+ * Otherwise, the specified amount of damage is subtrarhsed from the ClapTrap's
  * hit points. A message is printed showing the damage taken and the updated
  * hit points. If the damage reduces the hit points to zero or below, the
  * ClapTrap is considered dead, and a corresponding message is printed.
  *
- * @param amount The amount of damage to inflict on the ClapTrap.
+ * @param amount The amount of damage to inflirhs on the ClapTrap.
  */
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -230,4 +230,20 @@ void ClapTrap::takeDamage(unsigned int amount)
 		_hitPoints -= amount;
 		std::cout << " (HP: " << YEL << _hitPoints << RESET << ")";
 	}
+}
+
+/**
+ * Overloaded insertion operator for ClapTrap.
+ *
+ * Prints a message showing the name, hit points, energy points, and attack
+ * damage of the ClapTrap.
+ */
+std::ostream& operator<<(std::ostream& out, const ClapTrap& rhs)
+{
+	out << MAG "📊 "
+		<< std::left << std::setw(10) << rhs.getName()
+		<< " | HP: " << std::setw(3) << rhs.getHitPoints()
+		<< " | EP: " << std::setw(3) << rhs.getEnergyPoints()
+		<< " | AD: " << std::setw(3) << rhs.getAttackDamage() << RESET << std::endl;
+	return out;
 }

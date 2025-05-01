@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:45:32 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/01 21:29:22 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/01 21:30:07 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void ScavTrap::attack(const std::string &target)
 /**
  * Puts the ScavTrap into Gate keeper mode.
  *
- * Prints a message indicating that the ScavTrap is now in Gate keeper mode.
+ * Prints a message indicating the ScavTrap's name and the mode it is now in.
  */
 void ScavTrap::guardGate(void)
 {

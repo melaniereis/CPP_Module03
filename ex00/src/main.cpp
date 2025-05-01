@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:29:59 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/01 17:17:23 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/01 21:48:39 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 #define SEPARATOR(txt) std::cout << "\n" \
 								 << WHT "🔹 " << txt << RESET "\n"
-#define STATS(ct) std::cout << MAG "📊 " << ct.getName()         \
-							<< " | HP: " << ct.getHitPoints()    \
-							<< " | EP: " << ct.getEnergyPoints() \
-							<< " | AD: " << ct.getAttackDamage() << RESET << std::endl
 
 /**
  * @brief Full simulation of ClapTrap behavior including:
@@ -33,10 +29,7 @@ int main(void)
 	ClapTrap dummy("Dummy");
 
 	SEPARATOR("Initial Stats");
-	STATS(noName);
-	STATS(bob);
-	STATS(lisa);
-	STATS(dummy);
+	std::cout << noName << bob << lisa << dummy << std::endl;
 
 	SEPARATOR("⚔️  Attacks");
 	noName.attack("Wall");
@@ -66,12 +59,7 @@ int main(void)
 	shadow.attack("Ghost"); // Should do nothing (dead)
 
 	SEPARATOR("📈 Final Stats");
-	STATS(noName);
-	STATS(bob);
-	STATS(lisa);
-	STATS(dummy);
-	STATS(ghost);
-	STATS(shadow);
+	std::cout << noName << bob << lisa << dummy << ghost << shadow << std::endl;
 
 	std::cout << "\n"
 			  << GRN "✅ Simulation complete!" RESET << std::endl;

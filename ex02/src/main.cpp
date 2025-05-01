@@ -1,5 +1,6 @@
 #include "../inc/ClapTrap.hpp"
 #include "../inc/ScavTrap.hpp"
+#include "../inc/FragTrap.hpp"
 #include <iomanip> // for std::setw
 
 // Formatting macros
@@ -12,6 +13,7 @@
 // Function declarations
 void testClapTraps(void);
 void testScavTraps(void);
+void testFragTraps(void);
 void printFinalMessage(void);
 
 // Entry point
@@ -21,6 +23,7 @@ int main(void)
 
 	testClapTraps();
 	testScavTraps();
+	testFragTraps();
 	printFinalMessage();
 
 	return 0;
@@ -72,7 +75,6 @@ void testClapTraps(void)
 
 	SEPARATOR("📈 Final ClapTrap Stats");
 	std::cout << noName << bob << lisa << dummy << ghost << shadow << std::endl;
-
 }
 
 /**
@@ -106,6 +108,51 @@ void testScavTraps(void)
 
 	SEPARATOR("📈 Final ScavTrap Stats");
 	std::cout << scavy << sentinel << copyScav << assignedScav << std::endl;
+}
+
+/**
+ * @brief Simulates FragTrap behavior: combat, high fives, energy drain, cloning,
+ *        and assignment.
+ */
+void testFragTraps(void)
+{
+	SEPARATOR("🛠️ FragTrap Construction");
+	FragTrap frag1("Frag1");
+	FragTrap frag2("Frag2");
+	FragTrap dummyFrag("DummyFrag");
+
+	SEPARATOR("📊 Initial FragTrap Stats");
+	std::cout << frag1 << frag2 << dummyFrag << std::endl;
+
+	SEPARATOR("⚔️ FragTrap Combat");
+	frag1.attack("Bandit");
+	frag2.attack("Raider");
+	dummyFrag.takeDamage(25);
+	dummyFrag.beRepaired(10);
+
+	SEPARATOR("🤝 High Five Requests");
+	frag1.highFivesGuys();
+	frag2.highFivesGuys();
+	dummyFrag.takeDamage(85); // Reduce to 0 HP
+	dummyFrag.highFivesGuys(); // Should still work
+
+	SEPARATOR("⚡ Energy Stress Test");
+	for (int i = 0; i < 5; i++) {
+		frag2.attack("Target");
+	}
+	frag2.beRepaired(50); // Should fail after energy drain
+
+	SEPARATOR("🔁 FragTrap Cloning");
+	FragTrap clone(frag1);
+	FragTrap assigned;
+	assigned = frag2;
+
+	SEPARATOR("🎭 Clone Actions");
+	clone.attack("Clone Target");
+	assigned.highFivesGuys();
+
+	SEPARATOR("📈 Final FragTrap Stats");
+	std::cout << frag1 << frag2 << dummyFrag << clone << assigned << std::endl;
 }
 
 /**
