@@ -1,7 +1,8 @@
 #include "../inc/ClapTrap.hpp"
 #include "../inc/ScavTrap.hpp"
 #include "../inc/FragTrap.hpp"
-#include <iomanip> // for std::setw
+#include "../inc/DiamondTrap.hpp"
+#include <iomanip>
 
 // Formatting macros
 #define SEPARATOR(txt) std::cout << "\n"                                              \
@@ -14,6 +15,7 @@
 void testClapTraps(void);
 void testScavTraps(void);
 void testFragTraps(void);
+void testDiamondTraps(void);
 void printFinalMessage(void);
 
 // Entry point
@@ -24,6 +26,7 @@ int main(void)
 	testClapTraps();
 	testScavTraps();
 	testFragTraps();
+	testDiamondTraps();
 	printFinalMessage();
 
 	return 0;
@@ -153,6 +156,69 @@ void testFragTraps(void)
 
 	SEPARATOR("📈 Final FragTrap Stats");
 	std::cout << frag1 << frag2 << dummyFrag << clone << assigned << std::endl;
+}
+
+void testDiamondTraps()
+{
+	SEPARATOR("💎 DiamondTrap Masterclass");
+	DiamondTrap gem("Gemini");
+	DiamondTrap ghost;
+
+	// Initial verification
+	SEPARATOR("🔍 Initial Verification");
+	std::cout << gem << ghost << std::endl;
+	std::cout << CYN "Gemini's ClapTrap name: " << gem.ClapTrap::getName() << RESET "\n"
+			  << CYN "Gemini's Diamond name: " YEL << gem.getName() << RESET << std::endl;
+
+	SEPARATOR("⚔️ Multi-Class Combat");
+	gem.attack("Raider");             // ScavTrap attack
+	gem.takeDamage(20);               // Base ClapTrap function
+	gem.beRepaired(15);
+	gem.guardGate();                  // ScavTrap exclusive
+	gem.highFivesGuys();              // FragTrap exclusive
+
+	// Energy depletion test
+	SEPARATOR("⚡ Energy Stress Test");
+	for (int i = 0; i < 5; i++) {
+		gem.attack("Training Bot");
+	}
+	gem.attack("Overkill");  // Should fail (0 energy)
+
+	// Damage verification
+	SEPARATOR("💥 Damage Verification");
+	gem.takeDamage(95);  // 100HP - 95 = 5HP left
+	gem.beRepaired(10);  // Should work (5 + 10 = 15HP)
+	gem.takeDamage(150); // Should die
+	gem.beRepaired(5);   // Dead repair attempt
+
+	SEPARATOR("🧬 Copy Mechanics");
+	DiamondTrap twin(gem);           // Copy constructor
+	DiamondTrap mirror;
+	mirror = gem;                    // Assignment
+
+	// Verify copy integrity
+	twin.whoAmI();
+	std::cout << CYN "Copied HP: " YEL << twin.getHitPoints()
+			  << CYN " | EP: " YEL << twin.getEnergyPoints() << RESET << std::endl;
+
+	// Test copied objects
+	mirror.attack("Clone Target");
+	mirror.whoAmI();
+
+	SEPARATOR("💀 Post-Mortem Checks");
+	ghost.takeDamage(300);           // Instant death
+	ghost.attack("Phantom");         // Should fail
+	ghost.beRepaired(10);            // Should fail
+	ghost.whoAmI();                  // Should show names despite being dead
+
+	SEPARATOR("📈 Final Status Report");
+	std::cout << gem << ghost << twin << mirror << std::endl;
+
+	// Explicit name check in copies
+	SEPARATOR("🔗 Name Inheritance in Copies");
+	std::cout << CYN "Original ClapName: " GRN << gem.ClapTrap::getName() << RESET "\n"
+			  << CYN "Copy ClapName: " GRN << twin.ClapTrap::getName() << RESET "\n"
+			  << CYN "Assignment ClapName: " GRN << mirror.ClapTrap::getName() << RESET << std::endl;
 }
 
 /**

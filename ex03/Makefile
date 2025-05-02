@@ -6,14 +6,14 @@
 #    By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/24 15:02:25 by meferraz          #+#    #+#              #
-#    Updated: 2025/05/02 15:23:42 by meferraz         ###   ########.fr        #
+#    Updated: 2025/05/02 21:15:19 by meferraz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # This is a simple Makefile for the  My First Class in
 # Orthodox Canonical Form exercise.
 
-NAME        = FragTrap
+NAME        = DiamondTrap
 
 #------------------------------------------------------------------------------#
 #                             NAMES AND PATHS                                  #
@@ -23,8 +23,8 @@ BUILD_PATH  = .build
 SRC_PATH    = src
 INC_PATH    = inc
 
-HEADERS     = $(addprefix $(INC_PATH)/, ansi.h ClapTrap.hpp ScavTrap.hpp FragTrap.hpp)
-SRCS        = $(addprefix $(SRC_PATH)/, main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp)
+HEADERS     = $(addprefix $(INC_PATH)/, ansi.h ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp)
+SRCS        = $(addprefix $(SRC_PATH)/, main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp)
 OBJS        = $(SRCS:$(SRC_PATH)/%.cpp=$(BUILD_PATH)/%.o)
 
 #------------------------------------------------------------------------------#
@@ -32,7 +32,7 @@ OBJS        = $(SRCS:$(SRC_PATH)/%.cpp=$(BUILD_PATH)/%.o)
 #------------------------------------------------------------------------------#
 
 CXX         = c++
-CXXFLAGS    = -Wall -Wextra -Werror -Wshadow-std=c++98 -g
+CXXFLAGS    = -Wall -Wextra -Werror -Wshadow -std=c++98 -g
 RM          = rm -fr
 MKDIR       = mkdir -p
 INCLUDES    = -I$(INC_PATH)

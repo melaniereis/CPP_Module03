@@ -13,7 +13,10 @@
 #include "../inc/DiamondTrap.hpp"
 
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"), _name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name")
+	, ScavTrap(name)
+	, FragTrap(name)
+	, _name(name)
 {
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
@@ -23,8 +26,10 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"), _name(
 
 
 DiamondTrap::DiamondTrap(void)
-	: ClapTrap("Default_clap_name"),
-	_name("Default")
+	: ClapTrap("Default_clap_name")
+	, ScavTrap("Default")
+	, FragTrap("Default")
+	, _name("Default")
 {
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
@@ -33,10 +38,10 @@ DiamondTrap::DiamondTrap(void)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &rhs)
-	: ClapTrap(rhs),
-	ScavTrap(rhs),
-	FragTrap(rhs),
-	_name(rhs._name)
+	: ClapTrap(rhs)
+	, ScavTrap(rhs)
+	, FragTrap(rhs)
+	, _name(rhs._name)
 {
 	std::cout << YEL "📋 DiamondTrap Copy constructor called" RESET << std::endl;
 }
@@ -45,16 +50,9 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 {
 	if (this != &rhs)
 	{
-		// Copy base class parts
 		ClapTrap::operator=(rhs);
-		ScavTrap::operator=(rhs);
-		FragTrap::operator=(rhs);
-
-		// Copy DiamondTrap-specific members
-		this->_name = rhs._name;
-
-		// Ensure ClapTrap name matches DiamondTrap convention
-		ClapTrap::setName(this->_name + "_clap_name");
+		_name = rhs._name;
+		setName(_name + "_clap_name");
 	}
 	std::cout << YEL "🔁 DiamondTrap Copy assignment operator called" RESET << std::endl;
 	return *this;
@@ -64,6 +62,11 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << RED "❌ DiamondTrap Destructor called for " << this->_name << RESET << std::endl;
+}
+
+std::string DiamondTrap::getName(void) const
+{
+	return this->_name;
 }
 
 void DiamondTrap::whoAmI(void)

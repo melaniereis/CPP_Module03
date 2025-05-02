@@ -27,6 +27,8 @@ public:
 
 	using ScavTrap::attack;
 
+	std::string getName(void) const;
+
 	void whoAmI(void);
 
 private:
