@@ -6,7 +6,7 @@
 /*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 10:31:03 by meferraz          #+#    #+#             */
-/*   Updated: 2025/05/02 21:14:19 by meferraz         ###   ########.fr       */
+/*   Updated: 2025/05/03 08:00:18 by meferraz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	unsigned int getEnergyPoints(void) const;
 	unsigned int getAttackDamage(void) const;
 
-	void setName(std::string name);
+	virtual void setName(std::string name);
 	void setHitPoints(unsigned int amount);
 	void setEnergyPoints(unsigned int amount);
 	void setAttackDamage(unsigned int amount);
