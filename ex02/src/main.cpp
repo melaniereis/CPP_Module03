@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/01 16:45:32 by meferraz          #+#    #+#             */
+/*   Updated: 2025/05/03 09:11:22 by meferraz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/ClapTrap.hpp"
 #include "../inc/ScavTrap.hpp"
 #include "../inc/FragTrap.hpp"
-#include <iomanip> // for std::setw
 
 // Formatting macros
 #define SEPARATOR(txt) std::cout << "\n"                                              \
@@ -137,6 +148,8 @@ void testFragTraps(void)
 	dummyFrag.highFivesGuys(); // Should still work
 
 	SEPARATOR("⚡ Energy Stress Test");
+	frag2.setEnergyPoints(5);
+	std::cout << frag2 << std::endl;
 	for (int i = 0; i < 5; i++) {
 		frag2.attack("Target");
 	}

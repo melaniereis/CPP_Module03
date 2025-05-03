@@ -100,7 +100,7 @@ void ScavTrap::attack(const std::string &target)
 		return;
 	this->setEnergyPoints(this->getEnergyPoints() - 1);
 
-	std::cout << YEL "🔫 " << this->getName() << " attacks " << target << ", causing "
+	std::cout << YEL "🔫 ScavTrap " << this->getName() << " attacks " << target << ", causing "
 			  << GRN << this->getAttackDamage() << " points of damage!" RESET << std::endl;
 }
 

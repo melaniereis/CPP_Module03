@@ -52,7 +52,11 @@ int main()
 // ─────────────────────────────────────────────
 //              ClapTrap Demonstration
 // ─────────────────────────────────────────────
-void testClapTraps()
+/**
+ * @brief Simulates ClapTrap behavior: construction, combat, repairs,
+ *        energy depletion, copying, and assignment.
+ */
+ void testClapTraps()
 {
 	SEPARATOR("📦 ClapTrap Construction");
 	ClapTrap noName, bob("Bob"), lisa("Lisa"), dummy("Dummy");
@@ -92,6 +96,10 @@ void testClapTraps()
 // ─────────────────────────────────────────────
 //              ScavTrap Demonstration
 // ─────────────────────────────────────────────
+/**
+ * @brief Simulates ScavTrap behavior: combat, repairs, guard mode, copying,
+ *        and assignment.
+ */
 void testScavTraps()
 {
 	SEPARATOR("🛠️ ScavTrap Construction");
@@ -121,46 +129,75 @@ void testScavTraps()
 // ─────────────────────────────────────────────
 //              FragTrap Demonstration
 // ─────────────────────────────────────────────
-void testFragTraps()
-{
-	SEPARATOR("🛠️ FragTrap Construction");
-	FragTrap frag1("Frag1"), frag2("Frag2"), dummyFrag("DummyFrag");
-
-	SEPARATOR("📊 Initial FragTrap Stats");
-	std::cout << frag1 << frag2 << dummyFrag << std::endl;
-
-	SEPARATOR("⚔️ FragTrap Combat");
-	frag1.attack("Bandit");
-	frag2.attack("Raider");
-	dummyFrag.takeDamage(25);
-	dummyFrag.beRepaired(10);
-
-	SEPARATOR("🤝 High Five Requests");
-	frag1.highFivesGuys();
-	frag2.highFivesGuys();
-	dummyFrag.takeDamage(85);
-	dummyFrag.highFivesGuys();
-
-	SEPARATOR("⚡ Energy Stress Test");
-	for (int i = 0; i < 5; i++) frag2.attack("Target");
-	frag2.beRepaired(50);
-
-	SEPARATOR("🔁 FragTrap Cloning");
-	FragTrap clone(frag1), assigned;
-	assigned = frag2;
-
-	SEPARATOR("🎭 Clone Actions");
-	clone.attack("Clone Target");
-	assigned.highFivesGuys();
-
-	SEPARATOR("📈 Final FragTrap Stats");
-	std::cout << frag1 << frag2 << dummyFrag << clone << assigned << std::endl;
-}
+/**
+ * @brief Simulates FragTrap behavior: combat, high fives, energy drain, cloning,
+ *        and assignment.
+ */
+ void testFragTraps(void)
+ {
+	 SEPARATOR("🛠️ FragTrap Construction");
+	 FragTrap frag1("Frag1");
+	 FragTrap frag2("Frag2");
+	 FragTrap dummyFrag("DummyFrag");
+ 
+	 SEPARATOR("📊 Initial FragTrap Stats");
+	 std::cout << frag1 << frag2 << dummyFrag << std::endl;
+ 
+	 SEPARATOR("⚔️ FragTrap Combat");
+	 frag1.attack("Bandit");
+	 frag2.attack("Raider");
+	 dummyFrag.takeDamage(25);
+	 dummyFrag.beRepaired(10);
+ 
+	 SEPARATOR("🤝 High Five Requests");
+	 frag1.highFivesGuys();
+	 frag2.highFivesGuys();
+	 dummyFrag.takeDamage(85); // Reduce to 0 HP
+	 dummyFrag.highFivesGuys(); // Should still work
+ 
+	 SEPARATOR("⚡ Energy Stress Test");
+	 frag2.setEnergyPoints(5);
+	 std::cout << frag2 << std::endl;
+	 for (int i = 0; i < 5; i++) {
+		 frag2.attack("Target");
+	 }
+	 frag2.beRepaired(50); // Should fail after energy drain
+ 
+	 SEPARATOR("🔁 FragTrap Cloning");
+	 FragTrap clone(frag1);
+	 FragTrap assigned;
+	 assigned = frag2;
+ 
+	 SEPARATOR("🎭 Clone Actions");
+	 clone.attack("Clone Target");
+	 assigned.highFivesGuys();
+ 
+	 SEPARATOR("📈 Final FragTrap Stats");
+	 std::cout << frag1 << frag2 << dummyFrag << clone << assigned << std::endl;
+ }
 
 // ─────────────────────────────────────────────
 //             DiamondTrap Demonstration
 // ─────────────────────────────────────────────
-void testDiamondTraps()
+/**
+ * @brief Demonstrates and validates the behavior of the DiamondTrap class.
+ *
+ * This function tests the following DiamondTrap functionalities:
+ * - Construction and default initialization
+ * - Identity display via whoAmI()
+ * - Inherited methods from ClapTrap, ScavTrap, and FragTrap:
+ *   - attack(), takeDamage(), beRepaired(), guardGate(), highFivesGuys()
+ * - Energy and health boundary conditions
+ * - Copy constructor and assignment operator behavior
+ * - Inheritance chain inspection and base class name resolution
+ * - Behavior of objects after critical HP is reached
+ *
+ * Key edge cases include:
+ * - Attacking and repairing with no energy
+ * - Taking lethal damage and invoking actions afterward
+ * - Ensuring name handling across inheritance and copying
+ */
+ void testDiamondTraps()
 {
 	SEPARATOR("💎 DiamondTrap Masterclass");
 	DiamondTrap gem("Gemini"), ghost;
@@ -216,7 +253,10 @@ void testDiamondTraps()
 // ─────────────────────────────────────────────
 //                  Final Message
 // ─────────────────────────────────────────────
-void printFinalMessage()
+/**
+ * @brief Final message indicating simulation end.
+ */
+ void printFinalMessage()
 {
 	std::cout << "\n" << BGRN "🎉✅ Simulation complete! 🎉\n\n" RESET;
 }

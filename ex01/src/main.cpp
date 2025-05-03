@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: meferraz <meferraz@student.42porto.pt>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/01 16:45:32 by meferraz          #+#    #+#             */
+/*   Updated: 2025/05/03 09:11:22 by meferraz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/ClapTrap.hpp"
 #include "../inc/ScavTrap.hpp"
-#include <iomanip> // for std::setw
 
 // Formatting macros
 #define SEPARATOR(txt) std::cout << "\n"                                              \

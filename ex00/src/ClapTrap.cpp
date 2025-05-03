@@ -13,28 +13,28 @@
 #include "../inc/ClapTrap.hpp"
 
 /**
- * Default construrhsor for ClapTrap.
+ * Default constructor for ClapTrap.
  *
  * Sets name to empty string, hitPoints to 10, energyPoints to 10 and attackDamage to 0.
  */
 ClapTrap::ClapTrap(void) : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << GRN "✅ ClapTrap Default construrhsor called" RESET << std::endl;
+	std::cout << GRN "✅ ClapTrap Default constructor called" RESET << std::endl;
 }
 
 /**
- * Construrhsor for ClapTrap, taking a std::string name as argument.
+ * constructor for ClapTrap, taking a std::string name as argument.
  *
- * This construrhsor will set the ClapTrap's name to the given name, and hitPoints,
+ * This constructor will set the ClapTrap's name to the given name, and hitPoints,
  * energyPoints and attackDamage to 10, 10 and 0 resperhsively.
  */
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-	std::cout << GRN "✅ ClapTrap Name construrhsor called" RESET << std::endl;
+	std::cout << GRN "✅ ClapTrap Name constructor called" RESET << std::endl;
 }
 
 /**
- * Copy construrhsor for ClapTrap.
+ * Copy constructor for ClapTrap.
  *
  * Makes a deep copy of the ClapTrap at the right-hand side of the operator.
  * All the member variables are copied.
@@ -42,7 +42,7 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
 	*this = rhs;
-	std::cout << YEL "📋 ClapTrap Copy construrhsor called" RESET << std::endl;
+	std::cout << YEL "📋 ClapTrap Copy constructor called" RESET << std::endl;
 }
 /**
  * Assignment operator for ClapTrap.
@@ -64,13 +64,13 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &rhs)
 }
 
 /**
- * Destrurhsor for ClapTrap.
+ * Destructor for ClapTrap.
  *
- * Prints a message indicating the destrurhsor has been called with the ClapTrap's name.
+ * Prints a message indicating the destructor has been called with the ClapTrap's name.
  */
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << RED "❌ ClapTrap Destrurhsor called for " << _name << RESET << std::endl;
+	std::cout << RED "❌ ClapTrap Destructor called for " << _name << RESET << std::endl;
 }
 
 /**
@@ -120,20 +120,20 @@ unsigned int ClapTrap::getAttackDamage(void) const
  * Prints a message indicating the lack of points.
  * Otherwise, returns true.
  */
-bool ClapTrap::has_points(void) const
-{
-	if (_hitPoints == 0)
-	{
-		std::cout << RED "💀 " << _name << " has no hit points left and cannot arhs!" RESET << std::endl;
-		return false;
-	}
-	if (_energyPoints == 0)
-	{
-		std::cout << RED "⚠️  " << _name << " has no energy left!" RESET << std::endl;
-		return false;
-	}
-	return true;
-}
+ bool ClapTrap::has_points(void) const
+ {
+	 if (_hitPoints == 0)
+	 {
+		 std::cout << RED "💀 " << _name << " has no hit points left and cannot act!" RESET << std::endl;
+		 return false;
+	 }
+	 if (_energyPoints == 0)
+	 {
+		 std::cout << RED "⚠️  " << _name << " has no energy left!" RESET << std::endl;
+		 return false;
+	 }
+	 return true;
+ }
 
 /**
  * Performs an attack on the specified target.
