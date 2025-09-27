@@ -560,6 +560,6 @@ After mastering Module 03, you'll be ready to tackle:
 
 *"Inheritance is not just about reusing code, it's about expressing relationships."*
 
-**Module 03 Complete** ✨ | **Previous**: [← Module 02](../CPP_Module02/README.md) | **Next**: [Module 04 →](../CPP_Module04/README.md)
+**Module 03 Complete** ✨ | **Previous**: [← Module 02](https://github.com/melaniereis/CPP_Module02/) | **Next**: [Module 04 →](https://github.com/melaniereis/CPP_Module04/)
 
 </div>
